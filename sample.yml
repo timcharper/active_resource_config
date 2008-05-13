@@ -1,0 +1,11 @@
+server_name:
+  development:
+    site: "http://localhost:3000"
+    prefix: "/api/"
+    user: 'admin'
+    password: 'shhhh'
+  production:
+    site: "http://host.org"
+    prefix: "/api/"
+    user: 'admin'
+    password: 'shhhh'

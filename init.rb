@@ -1,0 +1,1 @@
+require 'load_config'
