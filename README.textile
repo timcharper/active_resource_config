@@ -47,7 +47,11 @@ class MyResource < ActiveResource::Base
   ...
 end
 </pre>
-    
+
+h2. Credits
+
+Developed out of need by <a href="http://tim.theenchanter.com/">Tim Harper</a>, under <a href="http://code.leadmediapartners.com/">Lead Media Partners</a>
+
 h2. Conclusion
 
 If this functionality gets accepted into the rails core ActiveResource, so be it.  If not, it will continue to be available as a standalone plugin.
