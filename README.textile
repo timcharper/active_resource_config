@@ -1,0 +1,53 @@
+h1. Active Resource Config
+
+A Ruby-on-Rails plugin that extends ActiveResource
+
+h2. Overview
+
+When consuming server resources, you may wish to have environment specific settings (for example, have <code>staging</code> use a <code>staging</code> version of the api, and <code>production</code> use a <code>production</code> version of the api.)  Additionally, you may have some service calls that take longer than a minute to run, and want to control the HTTP <code>read_timeout</code> variable for a service.
+
+h2. Features Implemented by Plugin
+
+ * Make it easier to implement environment-specific settings for ActiveResource.
+ 
+ * Implement the settings <code>open_timeout</code> and <code>read_timeout</code>.
+
+h2. Usage
+
+ * Install the plugin to <code>vendor/plugins/active_resource_config</code>
+ 
+ * Copy <code>vendor/plugins/active_resource_config/active_resource.sample.yml</code> to <code>config/active_resource.yml</code>.
+ 
+  <pre>
+service_name:
+  development:
+    site: "http://localhost:3000"
+    prefix: "/api/"
+    user: 'admin'
+    password: 'shhhh'
+    open_timeout: 120
+    read_timeout: 120
+  production:
+    site: "http://host.org"
+    prefix: "/api/"
+    user: 'admin'
+    password: 'shhhh'
+    open_timeout: 120
+    read_timeout: 120
+</pre>
+
+ * Modify the settings to suit your needs
+ 
+ * In your Resource base class (if you have many models derived from a resource), include the following line at the top:
+ 
+    <pre>
+class MyResource < ActiveResource::Base
+  load_config :service_name
+  # where :service_name corresponds to the name you gave the service in active_resource.yml)
+  ...
+end
+</pre>
+    
+h2. Conclusion
+
+If this functionality gets accepted into the rails core ActiveResource, so be it.  If not, it will continue to be available as a standalone plugin.

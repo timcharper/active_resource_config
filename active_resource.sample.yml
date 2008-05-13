@@ -1,4 +1,4 @@
-server_name:
+service_name:
   development:
     site: "http://localhost:3000"
     prefix: "/api/"
