@@ -17,5 +17,7 @@ class ActiveResource::Base
     site.user = my_env_config['user']
     site.password = my_env_config['password']
     self.prefix = my_env_config["prefix"] || ""
+    self.read_timeout = my_env_config["read_timeout"] if my_env_config["read_timeout"]
+    self.open_timeout = my_env_config["open_timeout"] if my_env_config["open_timeout"]
   end
 end

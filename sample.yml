@@ -4,6 +4,8 @@ server_name:
     prefix: "/api/"
     user: 'admin'
     password: 'shhhh'
+    open_timeout: 600
+    read_timeout: 600
   production:
     site: "http://host.org"
     prefix: "/api/"
